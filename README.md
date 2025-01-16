@@ -21,29 +21,10 @@ The main objectives of this project are:
 - **Documentation**: Comprehensive details about the database, its use cases, and the SQL queries.
 
 ## Tools and Technologies
-- **Database Management System (DBMS)**: 
+- **Database Management System (DBMS)**:
 - **Programming Language**: 
 - **SQL**: For database operations and queries.
 - **Version Control**: GitHub for collaboration and versioning.
-
-## Installation
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/Best-Code/Databses.git
-   ```
-2. Navigate to the project directory:
-   ```bash
-   cd Databases
-   ```
-3. Import the database schema:
-   ```bash
-   ```
-
-## How to Use
-1. Load the schema into your DBMS.
-2. Populate the database with sample data using the provided scripts.
-3. Execute queries to test functionality and explore the database.
-4. Modify and extend the database as required.
 
 ## Team Members
 - **Colin Maloney**
