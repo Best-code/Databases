@@ -1,4 +1,4 @@
-# Relational Database Project
+# Relational Database Project FSU
 
 ## Overview
 This repository contains the work of Colin Maloney, Imran Ahmed, and Hugh Long for our Database class project. We are designing and implementing a relational database to address a specific problem domain. The project involves all phases of database development, including planning, design, implementation, and testing.
