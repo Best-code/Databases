@@ -42,6 +42,10 @@ app.get('/public', async (_, res) => {
   res.json({ rows });
 });
 
+app.get("/", (_, res) => {
+  res.json({message: "Hello Test"});
+})
+
 app.listen(PORT, () => {
   console.log(`Listening to http://localhost:${PORT}`);
 });
