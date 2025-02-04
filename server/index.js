@@ -29,7 +29,7 @@ const PORT = process.env.PORT || 4242;
 // });
 
 
-app.get('/pixels', async (_, res) => {
+app.get('/public', async (_, res) => {
   const pool = new Pool({
     connectionString: process.env.DATABASE_URL,
   });
