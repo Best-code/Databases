@@ -34,7 +34,7 @@ app.get('/pixels', async (_, res) => {
     connectionString: process.env.DATABASE_URL,
   });
   const client = await pool.connect();
-  const result = await client.query(`select * from ${process.env.PIXELTABLE};`);
+  const result = await client.query(`select * from ${process.env.PUBLICTABLE};`);
   client.release();
 
   const rows = result.rows
