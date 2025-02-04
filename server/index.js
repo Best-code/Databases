@@ -1,15 +1,25 @@
+require('dotenv').config();
+
+var GeoJSON = require('geojson');
+const { Pool } = require('pg');
 const express = require('express');
-const cors = require('cors');
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 4242;
 
-app.use(cors());
+app.get('/raw', async (_, res) => {
+  const pool = new Pool({
+    connectionString: process.env.DATABASE_URL,
+  });
+  const client = await pool.connect();
+  const result = await client.query(`select * from ${process.env.RAWTABLE};`);
+  client.release();
 
-app.get('/api', (req, res) => {
-  res.json({ message: 'Hello from the backend!' });
+  const GeoParsed = GeoJSON.parse(result.rows, {Point: ['latitude', 'longitude']})
+
+  res.json({ GeoParsed });
 });
 
 app.listen(PORT, () => {
-  console.log(`Server listening on port ${PORT}`);
+  console.log(`Listening to http://localhost:${PORT}`);
 });
