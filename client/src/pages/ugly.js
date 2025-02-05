@@ -12,7 +12,7 @@ const Ugly = () => {
             setLoading(true);
 
             const response = await axios.get(
-                "http://localhost:4242/pixels", { withCredentials: true }
+                "http://localhost:4242/public", { withCredentials: true }
             );
 
             setGeoJson(response.data.rows);
