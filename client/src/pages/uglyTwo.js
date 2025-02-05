@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { coordinateParser } from "../utilities/dbUtils";
+import { coordinateParser, GeoJsonBreakdown } from "../utilities/dbUtils";
 
 
-const Ugly = () => {
+const UglyTwo = () => {
     const [GeoJson, setGeoJson] = useState([]);
     const [Loading, setLoading] = useState(false);
 
@@ -35,21 +35,21 @@ const Ugly = () => {
                 ) : (
                     GeoJson.map((row, key) => {
                         try {
-                            const geojsonObject = JSON.parse(row.geojson); // Convert string to object
+                            const {type, geometryType, coordinates, countryID, latitude, longitude} = GeoJsonBreakdown(row.geojson); 
                             return (
                                 <div key={key}>
-                                    <p>Type: {geojsonObject?.type}</p>
-                                    <p>Geometry Type: {geojsonObject?.geometry?.type}</p>
+                                    <p>Type: {type}</p>
+                                    <p>Geometry Type: {geometryType}</p>
                                     <p className="">Coordinates:
-                                        {coordinateParser(geojsonObject?.geometry?.coordinates[0]).map((coord, key) => (
+                                        {coordinateParser(coordinates).map((coord, key) => (
                                             <p key={key}>
                                                 <pre> {coord} </pre>
                                             </p>
                                         ))}
                                     </p>
-                                    <p>Country ID: {geojsonObject?.properties?.country_id}</p>
-                                    <p>Latitude: {geojsonObject?.properties?.latitude}</p>
-                                    <p>Longitude: {geojsonObject?.properties?.longitude}</p>
+                                    <p>Country ID: {countryID}</p>
+                                    <p>Latitude: {latitude}</p>
+                                    <p>Longitude: {longitude}</p>
                                     <hr />
                                 </div>
                             );
@@ -63,7 +63,7 @@ const Ugly = () => {
     );
 };
 
-export default Ugly;
+export default UglyTwo;
 
 
 

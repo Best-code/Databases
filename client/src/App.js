@@ -8,6 +8,7 @@ import {
 
 import Ugly from './pages/ugly';
 import Home from './pages/home';
+import UglyTwo from './pages/uglyTwo';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home/>}/>
           <Route path="/ugly" element={<Ugly/>}/>
+          <Route path="/uglyTwo" element={<UglyTwo/>}/>
         </Routes>
       </>
     </Router>
