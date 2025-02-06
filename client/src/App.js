@@ -1,5 +1,5 @@
 import './App.css';
-import React from 'react';
+import React, {useState} from 'react';
 import {
   BrowserRouter as Router,
   Routes,
@@ -10,17 +10,18 @@ import Ugly from './pages/ugly';
 import Home from './pages/home';
 import UglyTwo from './pages/uglyTwo';
 
+
+import 'leaflet/dist/leaflet.css';
+import MapComponent from './components/mapComponent.jsx';
+
 function App() {
+
+
+
   return (
-    <Router className="App">
-      <>
-        <Routes>
-          <Route path="/" element={<Home/>}/>
-          <Route path="/ugly" element={<Ugly/>}/>
-          <Route path="/uglyTwo" element={<UglyTwo/>}/>
-        </Routes>
-      </>
-    </Router>
+    <div style={{ height: '100vh' }}>  {/* container has height */}
+    <MapComponent />
+    </div>
   );
 }
 

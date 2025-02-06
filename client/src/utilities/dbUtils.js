@@ -4,19 +4,20 @@ export const coordinateParser = (coords) => {
 
 export const GeoJsonBreakdown = (JsonString) => {
     try {
-        const geojsonObject = JSON.parse(JsonString); // Convert string to object
+        console.log("GeoJSON String before parsing:", JsonString);
+        const geojsonObject = JSON.parse(JsonString); // convert string to object
+        console.log("Parsed GeoJSON Object:", geojsonObject);
+        
         return {
             type: geojsonObject?.type,
-            geometryType: geojsonObject?.geometry?.type,
-            coordinates: coordinateParser(geojsonObject?.geometry?.coordinates[0]),
-            countryID: geojsonObject?.properties?.country_id,
-            latitude: geojsonObject?.properties?.latitude,
-            longitude: geojsonObject?.properties?.longitude,
-        }
+            geometry: geojsonObject?.geometry,  // keep the original structure
+            properties: geojsonObject?.properties, // keep properties
+        };
     } catch (error) {
         console.error("JSON Parse Error:", error, "for row:", JsonString);
+        return null; // return null if it fails
     }
-}
+};
 
 // export const GeoJsonBreakdown = (JsonArray) => {
 //     JsonArray.map((row, key) => {
