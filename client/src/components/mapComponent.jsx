@@ -33,6 +33,7 @@ const MapComponent = () => {
         loadData();
     }, []);
 
+    //color for spots
     const geoJSONStyle = {
         color: '#ff7800',
         weight: 2,
