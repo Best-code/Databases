@@ -2,7 +2,7 @@ export const coordinateParser = (coords) => {
     return JSON.stringify(coords).replaceAll("[", "").replaceAll("]", "").split(',')
 }
 
-export const GeoJsonBreakdown = (JsonString) => {
+export const GeoJsonBreakdown = (JsonString) => { //don't need anymore - will try to make all public querys serve complete geojson on row 0
     try {
         console.log("GeoJSON String before parsing:", JsonString);
         const geojsonObject = JSON.parse(JsonString); // convert string to object

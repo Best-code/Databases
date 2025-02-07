@@ -1,6 +1,6 @@
 require('dotenv').config();
 
-
+ 
 // var GeoJSON = require('geojson'); - Reinstall if needed
 const { Pool } = require('pg');
 const express = require('express');
@@ -29,7 +29,20 @@ const PORT = process.env.PORT || 4242;
 // });
 
 
-app.get('/public', async (_, res) => {
+app.get('/viirs-public', async (_, res) => {
+  const pool = new Pool({
+    connectionString: process.env.DATABASE_URL,
+  });
+  const client = await pool.connect();
+  const result = await client.query(`select * from ${process.env.PUBLICTABLE};`);
+  client.release();
+
+  const rows = result.rows
+
+  res.json({ rows });
+});
+
+app.get('/wfigs-public', async (_, res) => {
   const pool = new Pool({
     connectionString: process.env.DATABASE_URL,
   });

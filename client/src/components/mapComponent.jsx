@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { MapContainer, TileLayer, GeoJSON, LayerGroup } from 'react-leaflet';
 import axios from 'axios';
-import { GeoJsonBreakdown } from '../utilities/dbUtils';
+//import { GeoJsonBreakdown } from '../utilities/dbUtils'; //unneeded
 import "leaflet/dist/leaflet.css";
 import formatTime from './utils/formatTime';
 const MapComponent = () => {
@@ -14,13 +14,10 @@ const MapComponent = () => {
         const loadData = async () => {
             setLoading(true);
             try {
-                const response = await axios.get("http://localhost:4242/public");
+                const response = await axios.get("http://localhost:4242/viirs-public"); 
                 
-                const geoJsonData = {
-                    type: "FeatureCollection",
-                    features: response.data.rows.map(row => GeoJsonBreakdown(row.geojson))
-                };
-
+                const geoJsonData = response.data.rows[0].geojson; //all public geogjson tables serve geojson on row 0
+                    
                 console.log("Processed GeoJSON data:", geoJsonData);
                 setGeoJson(geoJsonData);
             } catch (error) {
@@ -40,7 +37,7 @@ const MapComponent = () => {
         opacity: 0.65
     };
 
-    const startPosition = { position: [30.4383, -84.2807], zoomLevel: 13 };
+    const startPosition = { position: [30.4383, -84.2807], zoomLevel: 6 };
 
     return (
         <MapContainer
