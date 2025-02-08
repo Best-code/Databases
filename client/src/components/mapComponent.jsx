@@ -2,9 +2,10 @@
 import React, { useState, useEffect } from 'react';
 import { MapContainer, TileLayer, GeoJSON, LayerGroup } from 'react-leaflet';
 import axios from 'axios';
-//import { GeoJsonBreakdown } from '../utilities/dbUtils'; //unneeded
 import "leaflet/dist/leaflet.css";
 import formatTime from './utils/formatTime';
+import L from "leaflet"
+
 const MapComponent = () => {
     const [geoJson, setGeoJson] = useState(null);
     const [loading, setLoading] = useState(false);
@@ -44,6 +45,8 @@ const MapComponent = () => {
             center={startPosition.position}
             zoom={startPosition.zoomLevel}
             style={{ height: "100vh", width: "100%" }}
+            maxBounds={L.latLngBounds([[-20 , 0], [ 90,-180]])}
+            minZoom={4}
         >
             <TileLayer
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
