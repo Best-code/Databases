@@ -1,7 +1,6 @@
 {
-  "name": "databases-project",
+  "name": "hotplot_project_pj",
   "version": "1.0.0",
-  "description": "## Overview This repository contains the work of Colin Maloney, Imran Ahmed, and Hugh Long for our Database class project. We are designing and implementing a relational database to address a specific problem domain. The project involves all phases of database development, including planning, design, implementation, and testing.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -9,12 +8,18 @@
     "start:frontend": "cd client && npm start",
     "start:backend": " cd server && npm start"
   },
-  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HughLong-code/hotplot_project_pj.git"
+  },
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "concurrently": "^9.1.2",
-    "dotenv": "^16.4.7",
-    "nodemon": "^3.1.9"
+  "bugs": {
+    "url": "https://github.com/HughLong-code/hotplot_project_pj/issues"
+  },
+  "homepage": "https://github.com/HughLong-code/hotplot_project_pj#readme",
+  "description": "",
+  "devDependencies": {
+    "concurrently": "^9.1.2"
   }
 }
