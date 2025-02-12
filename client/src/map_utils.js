@@ -1,6 +1,8 @@
 import 'leaflet/dist/leaflet.css'
 import "leaflet"
 import axios from "axios"
+import fireIcon from "./flame.png"
+
 
 export function initialize_map (id , tileUrl , attribution , minZoom , maxBounds , zoom , center){
     var map = L.map(id , {zoomDelta : 0.25, minZoom : minZoom , maxBounds : maxBounds,
@@ -29,4 +31,7 @@ export function addLayer(map , layer){
 export function removeLayer(map , layer){
     return map.removeLayer(layer);
 }
-
+ 
+export function getFireIcon(feature, latlng){ 
+    return L.marker(latlng , {icon : L.icon({iconUrl : fireIcon , iconAnchor : [0,0] , iconSize : [12,12]})});
+}

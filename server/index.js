@@ -18,7 +18,7 @@ app.get('/viirs-public', async (_, res) => {
     connectionString: process.env.DATABASE_URL,
   });
   const client = await pool.connect();
-  const result = await client.query(`select * from ${process.env.PUBLICTABLE};`);
+  const result = await client.query(`select * from ${process.env.VIIRSPUBLIC};`);
   client.release();
 
   const rows = result.rows
@@ -31,7 +31,7 @@ app.get('/wfigs-public', async (_, res) => {
     connectionString: process.env.DATABASE_URL,
   });
   const client = await pool.connect();
-  const result = await client.query(`select * from ${process.env.PUBLICTABLE};`);
+  const result = await client.query(`select * from ${process.env.WFIGSPUBLIC};`);
   client.release();
 
   const rows = result.rows
@@ -45,4 +45,4 @@ app.get("/", (_, res) => {
 
 app.listen(PORT, () => {
   console.log(`Listening to http://localhost:${PORT}`);
-});
+}); 

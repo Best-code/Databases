@@ -1,6 +1,6 @@
 
 import 'leaflet'
-import { getGeojson, initialize_map } from "./map_utils.js"
+import { getFireIcon, getGeojson, initialize_map } from "./map_utils.js"
 
 
 const mapBounds = L.latLngBounds([[-20 , 0], [ 90,-180]]) //use for us mapbounds
@@ -20,7 +20,7 @@ const initMap = initialize_map('map' ,
     mapCenter
 );
 
-const map = initMap.map;
+const map = initMap.map;   
 const esriTiles = initMap.tiles;
 
 var viirsStyle = {
@@ -31,6 +31,12 @@ var viirsStyle = {
 
 var viirsData = await getGeojson(apiUrl + '/viirs-public');
 
-const viirsLayer = L.geoJSON(viirsData.features , {style : viirsStyle});
+var wfigsData = await getGeojson(apiUrl + '/wfigs-public');
+
+const viirsLayer = L.geoJSON(viirsData , {style : viirsStyle});
 
 viirsLayer.addTo(map);
+
+const wfigsLayer = L.geoJSON(wfigsData.features , {pointToLayer : getFireIcon});
+
+wfigsLayer.addTo(map);

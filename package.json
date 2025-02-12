@@ -20,6 +20,7 @@
   "homepage": "https://github.com/HughLong-code/hotplot_project_pj#readme",
   "description": "",
   "devDependencies": {
-    "concurrently": "^9.1.2"
+    "concurrently": "^9.1.2",
+    "url-loader": "^4.1.1"
   }
 }
