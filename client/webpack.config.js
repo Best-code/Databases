@@ -1,4 +1,3 @@
-const { name } = require("file-loader");
 
 module.exports = {
   // ... other configurations
