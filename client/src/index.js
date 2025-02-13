@@ -1,6 +1,6 @@
 
 import 'leaflet'
-import { getFireIcon, getGeojson, initialize_map } from "./map_utils.js"
+import { addLayer, getFireIcon, getGeojson, initialize_map } from "./map_utils.js"
 
 
 const mapBounds = L.latLngBounds([[-20 , 0], [ 90,-180]]) //use for us mapbounds
@@ -35,7 +35,7 @@ var wfigsData = await getGeojson(apiUrl + '/wfigs-public');
 
 const viirsLayer = L.geoJSON(viirsData , {style : viirsStyle});
 
-viirsLayer.addTo(map);
+addLayer(map , viirsLayer);
 
 const wfigsLayer = L.geoJSON(wfigsData.features , {pointToLayer : getFireIcon});
 

@@ -33,5 +33,5 @@ export function removeLayer(map , layer){
 }
  
 export function getFireIcon(feature, latlng){ 
-    return L.marker(latlng , {icon : L.icon({iconUrl : fireIcon , iconAnchor : [0,0] , iconSize : [12,12]})});
+    return L.marker(latlng , {icon : L.icon({iconUrl : fireIcon , iconSize : [12,12]})});
 }
