@@ -6,7 +6,7 @@ import fireIcon from "./flame.png"
 
 export function initialize_map (id , tileUrl , attribution , minZoom , maxBounds , zoom , center){
     var map = L.map(id , {zoomDelta : 0.25, minZoom : minZoom , maxBounds : maxBounds,
-        zoom : zoom , center: center , style : { height: "100vh", width: "100vw" }});
+        zoom : zoom , center: center , style : { height: "100vh", width: "100vw" } , zoomControl: false});
 
     var tiles = L.tileLayer(tileUrl, {attribution : attribution});
 

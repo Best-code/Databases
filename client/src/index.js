@@ -3,7 +3,6 @@ import 'leaflet'
 import { addLayer, getFireIcon, getGeojson, initialize_map } from "./map_utils.js"
 import './styles.css'
 
-
 const mapBounds = L.latLngBounds([[-20 , 0], [ 90,-180]]) //use for us mapbounds
 const minZoom = 4
 const zoomStart = 7

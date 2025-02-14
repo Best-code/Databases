@@ -1,10 +1,24 @@
-#map{
+#body{
     width: 100vw;
     height: 100vh;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    top: 0;
-    left: 0;
+    margin: 0%;
+    z-index: 0;
+}
 
+#map{
+    height: 100vh;
+    width: 100vw;
+    z-index: 50;
+    z-index: 0;
+}
+
+#layerMenu{
+    font-size: 8px;
+    height: 50em;
+    width: 20em;
+    z-index: 1; 
+    position: absolute;
+    top: 8vh;
+    right: 1em;
+    background-color: aliceblue;
 }
